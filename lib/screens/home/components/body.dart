@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:movie_info_app/components/genre_card.dart';
 import 'package:movie_info_app/constants.dart';
+import 'package:movie_info_app/models/movie.dart';
+import 'categories.dart';
+import 'genres.dart';
 
 class Body extends StatelessWidget {
   const Body({Key? key}) : super(key: key);
@@ -7,62 +11,85 @@ class Body extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: <Widget>[
-        CategoryList(),
-      ],
+      children: <Widget>[CategoryList(), Genres(), MovieCarousel()],
     );
   }
 }
 
-class CategoryList extends StatefulWidget {
-  const CategoryList({Key? key}) : super(key: key);
+class MovieCarousel extends StatefulWidget {
+  const MovieCarousel({Key? key}) : super(key: key);
 
   @override
-  _CategoryListState createState() => _CategoryListState();
+  _MovieCarouselState createState() => _MovieCarouselState();
 }
 
-class _CategoryListState extends State<CategoryList> {
-  int selectedCategory = 0;
-  List<String> categories = ["In Theater", "Box Office", "Comming Soon"];
+class _MovieCarouselState extends State<MovieCarousel> {
+  late PageController _pageController;
+  int initialPage = 1;
+
+  @override
+  void initState() {
+    super.initState();
+    _pageController = PageController();
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    _pageController.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 60,
-      child: ListView.builder(
-          scrollDirection: Axis.horizontal,
-          itemCount: categories.length,
-          itemBuilder: (context, index) => buildCategory(index, context)),
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: kDefaultPadding),
+      child: AspectRatio(
+        aspectRatio: 0.85,
+        child: PageView.builder(
+          itemCount: movies.length,
+          itemBuilder: (context, index) => MovieCard(
+            movie: movies[index],
+          )
+        ),
+      ),
     );
   }
+}
 
-  Padding buildCategory(int index, BuildContext context) {
+class MovieCard extends StatelessWidget {
+  final Movie movie;
+  const MovieCard({ Key? key, required this.movie }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: kDefaultPadding),
+      padding: const EdgeInsets.symmetric(horizontal: kDefaultPadding),
       child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            categories[index],
-            style: Theme.of(context)
-                .textTheme
-                .headline5!
-                .copyWith(
-                  fontWeight: FontWeight.w600,
-                  color: index == selectedCategory ? kTextColor : Colors.black.withOpacity(0.4)
-                  
-                  ),
-                
+        children: <Widget>[
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(50),
+                boxShadow: [kDefaultShadow],
+                image: DecorationImage(
+                  fit: BoxFit.fill,
+                  image: AssetImage(movie.poster)
+                )
+              ),
+
+            ) 
           ),
-          Container(
-            margin: EdgeInsets.symmetric(vertical: kDefaultPadding/2),
-            height: 6,
-            width: 40,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(10),
-              color: index == selectedCategory ? kSecondaryColor : Colors.transparent,
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: kDefaultPadding /2 ),
+            child: Text(
+              movie.title,
+              style: Theme.of(context).textTheme.headline5?.copyWith(
+                fontWeight: FontWeight.w600
+              ),
             ),
           )
         ],
+        
       ),
     );
   }
