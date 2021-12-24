@@ -4,6 +4,7 @@ import 'package:movie_info_app/constants.dart';
 import 'package:movie_info_app/models/movie.dart';
 
 import 'backdrop_rating.dart';
+import 'title_duration.dart';
 
 class Body extends StatelessWidget {
   final Movie movie;
@@ -15,8 +16,11 @@ class Body extends StatelessWidget {
     return Column(
       children: <Widget>[
         BackdropAndRating(size: size, movie: movie),
+        TitleDuration(movie: movie),
       ],
     );
   }
 }
+
+
 
