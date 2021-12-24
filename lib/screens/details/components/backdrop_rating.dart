@@ -21,7 +21,7 @@ class BackdropAndRating extends StatelessWidget {
       child: Stack(
         children: <Widget>[
           Container(
-            height: size.height * 0.4 - 50,
+            height: size.height * 0.4 - 40,
             decoration: BoxDecoration(
               borderRadius:
                   BorderRadius.only(bottomLeft: Radius.circular(50)),
