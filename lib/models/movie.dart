@@ -24,7 +24,7 @@ class Movie {
 List<Movie> movies = [
   Movie(
     id: 1,
-    title: "Bloodshot",
+    title: "Spider-man: No way home",
     year: 2020,
     poster: "assets/images/poster_1.jpg",
     backdrop: "assets/images/backdrop_1.jpg",
@@ -94,7 +94,7 @@ List<Movie> movies = [
   ),
   Movie(
     id: 3,
-    title: "Onward",
+    title: "The Simpsons",
     year: 2020,
     poster: "assets/images/poster_3.jpg",
     backdrop: "assets/images/backdrop_3.jpg",
@@ -103,27 +103,32 @@ List<Movie> movies = [
     criticsReview: 50,
     metascoreRating: 79,
     genra: ["Action", "Drama"],
-    plot: plotText,
+    plot: plotText2,
     cast: [
       {
-        "orginalName": "James Mangold",
-        "movieName": "Director",
-        "image": "assets/images/actor_1.png",
+        "orginalName": "Homer",
+        "movieName": "",
+        "image": "assets/images/homer.jpg",
       },
       {
-        "orginalName": "Matt Damon",
-        "movieName": "Carroll",
-        "image": "assets/images/actor_2.png",
+        "orginalName": "Marge",
+        "movieName": "",
+        "image": "assets/images/marge.jpg",
       },
       {
-        "orginalName": "Christian Bale",
-        "movieName": "Ken Miles",
-        "image": "assets/images/actor_3.png",
+        "orginalName": "Bart",
+        "movieName": "",
+        "image": "assets/images/bart.png",
       },
       {
-        "orginalName": "Caitriona Balfe",
-        "movieName": "Mollie",
-        "image": "assets/images/actor_4.png",
+        "orginalName": "Lisa",
+        "movieName": "",
+        "image": "assets/images/lisa.png",
+      },
+      {
+        "orginalName": "Maggie",
+        "movieName": "",
+        "image": "assets/images/maggie.png",
       },
     ],
   ),
@@ -131,4 +136,4 @@ List<Movie> movies = [
 
 String plotText =
     "American car designer Carroll Shelby and driver Kn Miles battle corporate interference and the laws of physics to build a revolutionary race car for Ford in order.";
-
+String plotText2 = "The Simpsons live in Springfield, an American city like any other. Homer works as a safety inspector at a nuclear power plant";
