@@ -1,16 +1,14 @@
-# movie_info_app
+# Movie App
 
-A new Flutter project.
+Projeto de estudos de criação de interfaces utilizando Flutter.
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
+## Implementações futuras  
 
-A few resources to get you started if this is your first Flutter project:
+- Criar tela de login [ ]  
+- Consumo de API externa [ ]  
+- Listar filmes e séries por categoria [ ]  
+- Salvar para assistir mais tarde [ ]  
+- Adicionar link para assistir trailers [ ]
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
