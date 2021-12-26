@@ -2,6 +2,10 @@
 
 Projeto de estudos de criação de interfaces utilizando Flutter.
 
+# Gif do aplicativo
+
+![Caption](https://github.com/lucasaclima03/movie_info_app/blob/main/movie_app.gif)
+
 
 ## Implementações futuras  
 
